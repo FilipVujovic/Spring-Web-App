@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,6 +54,7 @@ public class IgracRestController {
 	
 	@ApiOperation(value = "Dodaje igraca u bazu")
 	@PostMapping("igrac")
+	@CrossOrigin
 	public ResponseEntity<Igrac> insertIgrac(@RequestBody Igrac igrac){
 		if(!igracRepository.existsById(igrac.getId())) 
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
@@ -64,6 +66,7 @@ public class IgracRestController {
 	
 	@ApiOperation(value = "Azurira igraca")
 	@PutMapping("igrac")
+	@CrossOrigin
 	public ResponseEntity<Igrac> updateIgrac(@RequestBody Igrac igrac) {
 		if(!igracRepository.existsById(igrac.getId()))
 			return new ResponseEntity<Igrac>(HttpStatus.NO_CONTENT);
@@ -73,6 +76,7 @@ public class IgracRestController {
 	@ApiOperation(value = "Brise igraca iz baze")
 	@Transactional
 	@DeleteMapping("igras/{id}")
+	@CrossOrigin
 	public ResponseEntity<Igrac> deleteIgrac(@PathVariable ("id") Integer id) {
 		if(!igracRepository.existsById(id))
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);

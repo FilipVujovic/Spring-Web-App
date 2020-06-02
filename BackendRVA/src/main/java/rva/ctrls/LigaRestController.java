@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,6 +43,7 @@ public class LigaRestController {
 	}
 	
 	@PostMapping("liga")
+	@CrossOrigin
 	public ResponseEntity<Liga> insertLiga(@RequestBody Liga liga){
 		if(!ligaRepository.existsById(liga.getId())) {
 			ligaRepository.save(liga);
@@ -51,6 +53,7 @@ public class LigaRestController {
 	}
 	
 	@PutMapping("liga")
+	@CrossOrigin
 	public ResponseEntity<Liga> updateLiga(@RequestBody Liga liga) {
 		if(!ligaRepository.existsById(liga.getId()))
 			return new ResponseEntity<Liga>(HttpStatus.NO_CONTENT);
@@ -59,6 +62,7 @@ public class LigaRestController {
 	}
 	
 	@DeleteMapping("liga/{id}")
+	@CrossOrigin
 	public ResponseEntity<Liga> deleteLiga(@PathVariable ("id") Integer id) {
 		if(!ligaRepository.existsById(id))
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,6 +45,7 @@ public class TimRestController {
 	}
 	
 	@PostMapping("tim")
+	@CrossOrigin
 	public ResponseEntity<Tim> insertTim(@RequestBody Tim tim){
 		if(!timRepository.existsById(tim.getId())) {
 			timRepository.save(tim);
@@ -53,6 +55,7 @@ public class TimRestController {
 	}
 	
 	@PutMapping("tim")
+	@CrossOrigin
 	public ResponseEntity<Tim> updateTim(@RequestBody Tim tim) {
 		if(!timRepository.existsById(tim.getId()))
 			return new ResponseEntity<Tim>(HttpStatus.NO_CONTENT);
@@ -62,6 +65,7 @@ public class TimRestController {
 	
 	@Transactional
 	@DeleteMapping("tim/{id}")
+	@CrossOrigin
 	public ResponseEntity<Liga> deleteTim(@PathVariable ("id") Integer id) {
 		if(!timRepository.existsById(id))
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);

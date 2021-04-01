@@ -31,6 +31,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { NacionalnostDialogComponent } from './components/dialogs/nacionalnost-dialog/nacionalnost-dialog.component';
+import { LigaDialogComponent } from './components/dialogs/liga-dialog/liga-dialog.component';
+import { TimDialogComponent } from './components/dialogs/tim-dialog/tim-dialog.component';
+import { IgracDialogComponent } from './components/dialogs/igrac-dialog/igrac-dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import { FormsModule } from '@angular/forms';
     NacionalnostComponent,
     LigaComponent,
     TimComponent,
-    IgracComponent
+    IgracComponent,
+    NacionalnostDialogComponent,
+    LigaDialogComponent,
+    TimDialogComponent,
+    IgracDialogComponent
   ],
   imports: [
     BrowserModule,

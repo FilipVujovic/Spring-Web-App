@@ -24,14 +24,16 @@ export class NacionalnostService {
   }
 
   public addNacionalnost(nacionalnost: Nacionalnost): void {
-    this.httpClient.post(this.API_URL, nacionalnost);
+    nacionalnost.id = 0;
+    console.log('Nacionalnost ' + nacionalnost.naziv);
+    this.httpClient.post(this.API_URL, nacionalnost).subscribe();
   }
 
   public updateNacionalnost(nacionalnost: Nacionalnost): void {
-    this.httpClient.put(this.API_URL, nacionalnost);
+    this.httpClient.put(this.API_URL, nacionalnost).subscribe();
   }
 
   public deleteNacionalnost(id: number): void {
-    this.httpClient.delete(this.API_URL + id);
+    this.httpClient.delete(this.API_URL + id).subscribe();
   }
 }
